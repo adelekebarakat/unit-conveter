@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const fromToUnit = document.getElementById("unit-btn")
     const changeLabel = document.getElementById("label")
     const outputField = document.getElementById("output")
+    const resultSpace = document.getElementById("resultLine")
 
 
 
-
+// 
 
 converter.addEventListener("click", (event) => {
     event.preventDefault()
@@ -23,6 +24,7 @@ converter.addEventListener("click", (event) => {
         const validateinputField = (unitConvert) => {
             if (unitConvert <= 0) {
              alert("please enter valid number")
+             
             }
             //  else if(unitConvert === String()){
             //     alert("enter something")
@@ -57,18 +59,31 @@ converter.addEventListener("click", (event) => {
 
 
         }
+
+
+
+        // getting the unit
+        const str = fromToUnit.value
+        const unit = str.split(' ')
+       
+
         
-      document.getElementById("resultLine").innerHTML=unitConvert+" " + fromToUnit.value + "= " +  (validateinputField(unitConvert))  + ""
-      validateinputField(unitConvert)
 
-
-      outputField.value = validateinputField(unitConvert)
+        resultSpace.innerHTML=`
+        ${unitConvert} ${unit[0]} = ${(validateinputField(unitConvert))} ${unit[2]}
+      `
+      outputField.value =`
+        ${validateinputField(unitConvert)} ${unit[2]}
+      ` 
     }
+    
     
     
     convert()
 
 })
+
+    
 
 
 // changing the label
@@ -77,6 +92,13 @@ fromToUnit.addEventListener("change", (event) =>{
     const labelTo = () => {
         changeLabel.textContent = fromToUnit.value;
     }
+
+// when the from to change display nothing
+    fromTo.value =''
+    outputField.value = ''
+    resultSpace.innerHTML = ''
+
+
 
     labelTo()
 })

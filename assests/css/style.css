@@ -5,3 +5,9 @@
 .unit{
     margin: 20px 150px
 }
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    font-weight: 500;
+
+}
