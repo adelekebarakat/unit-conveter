@@ -11,3 +11,9 @@ p {
     font-weight: 500;
 
 }
+
+@media screen and (min-width:1px) and (max-width:425px) {
+    .unit{
+        margin: 0 0;
+    }
+}
